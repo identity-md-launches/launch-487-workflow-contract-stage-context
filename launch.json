@@ -1,0 +1,22 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "Milestone",
+    "symbol": "MILE",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "MilestoneEscrow",
+      "constructorArgs": ["$token"]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "Deploy LaunchToken from src/LaunchToken.sol first, then MilestoneEscrow from src/MilestoneEscrow.sol with the launch token as its immutable currency. Both constructors are nonpayable and require no initialization calls. MilestoneEscrow supports up to five fully funded milestones per escrow and has no owner, admin or fees. The pool pairs against native ETH with no hook. initialPrice is decimal sqrtPriceX96; a pinned policy that specifies an opening market cap determines the effective opening price. Policy and signed artifact linkage belong to launch services."
+}
